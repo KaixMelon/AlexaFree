@@ -1,14 +1,18 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from threading import Thread
 
-app = Flask(__name__)
+app = Flask('')
 
 @app.route('/')
 def home():
-    return "Bot is alive!"
+    return "✅ Bot is running."
 
-def run():
-    app.run(host='0.0.0.0', port=8080)
+# Route to serve the video
+@app.route('/tutorial.mp4')
+def tutorial_video():
+    return send_from_directory('.', 'tutorial.mp4')  # serve from current dir
 
 def keep_alive():
-    Thread(target=run).start()
+    t = Thread(target=lambda: app.run(host='0.0.0.0', port=8080))
+    t.start()
+
