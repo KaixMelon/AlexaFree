@@ -8,7 +8,7 @@ def home():
     return "✅ Bot is running."
 
 # Route to serve the video
-@app.route('/tutorial.mp4')
+@app.route('/lv_0_20250614233237.mp4')
 def tutorial_video():
     return send_from_directory('.', 'tutorial.mp4')  # serve from current dir
 
