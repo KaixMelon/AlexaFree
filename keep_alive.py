@@ -1,18 +1,15 @@
 from flask import Flask, send_from_directory
 from threading import Thread
 
-app = Flask('')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "✅ Bot is running."
+    return "✅ Alexa Free Bot is Alive."
 
-# Route to serve the video
-@app.route('/lv_0_20250614233237.mp4')
-def tutorial_video():
-    return send_from_directory('.', 'tutorial.mp4')  # serve from current dir
+@app.route('/video')
+def send_video():
+    return send_from_directory('.', 'lv_0_20250614233237.mp4', mimetype='video/mp4')
 
 def keep_alive():
-    t = Thread(target=lambda: app.run(host='0.0.0.0', port=8080))
-    t.start()
-
+    Thread(target=lambda: app.run(host='0.0.0.0', port=8080)).start()
