@@ -24,7 +24,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(tutorial_text, parse_mode='HTML')
 
     # Update this with your actual deployed domain if hosted on Render or Replit
-    video_url = "https://your-render-url.onrender.com/tutorial.mp4"
+    video_url = "https://alexafree.onrender.com/lv_0_20250614233237.mp4"
     
     await update.message.reply_video(
         video=video_url,
